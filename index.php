@@ -509,7 +509,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div align="center" class="col-md-4 contactgrid">
 				<input type="text" name="pass" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 				</div>
-				<div class="col-md-4 contactgrid2">
+				<div class="col-md-4 contactgrid">
                 <input type="submit" value="Sign in" name="btn-login" class='button'> 
 				</input>
 			   </div>
