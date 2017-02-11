@@ -1,0 +1,26 @@
+Field           | Type        | Null | Key | Default           | Extra          |
++-----------------+-------------+------+-----+-------------------+----------------+
+| PID             | int(11)     | NO   |     | NULL              |                |
+| Pname           | varchar(20) | NO   |     | NULL              |                |
+| Price           | int(11)     | NO   |     | NULL              |                |
+| TOTAL           | int(11)     | NO   |     | NULL              |                |
+| UID             | int(10)     | YES  |     | NULL              |                |
+| quantity        | int(10)     | YES  |     | NULL              |                |
+| order_DT        | datetime    | NO   |     | CURRENT_TIMESTAMP |                |
+| order_num       | int(10)     | NO   | PRI | NULL              | auto_increment |
+| OrderN          | datetime    | NO   |     | CURRENT_TIMESTAMP |                |
+| delivery_status | varchar(20) | YES  |     | NOT DELIVERED     |   
+
+
+
+
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| userId     | int(11)      | NO   | PRI | NULL    | auto_increment |
+| userName   | varchar(30)  | NO   |     | NULL    |                |
+| userEmail  | varchar(60)  | NO   | UNI | NULL    |                |
+| userPass   | varchar(255) | NO   |     | NULL    |                |
+| REG_NUM    | varchar(20)  | YES  |     | NULL    |                |
+| Wallet_Bal | int(11)      | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
