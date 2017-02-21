@@ -18,6 +18,8 @@ $userRow=mysql_fetch_array($fetch);
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="Smart Cart 2 - a javascript jQuery shopping cart plugin" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Welcome - <?php echo $userRow['userEmail']; ?></title>
 
 <!-- Smart Cart Files Include -->
@@ -124,7 +126,7 @@ th {
  
 
 
-<th>PID</th>
+
 <th>Pname</th>
 <th>quantity</th>
 <th>TOTAL</th>
@@ -142,7 +144,6 @@ th {
 <?php 
  while($row = mysql_fetch_array($res))
  {
-    $rname =$row['PID'];
     $pname =$row['Pname'];
     $mname =$row['quantity'];                           
     
@@ -154,7 +155,6 @@ th {
 
 <tr>
  	 
-    <td>&nbsp;<?php echo $rname; ?></td>
     <td>&nbsp;<?php echo $pname; ?></td>
        <td>&nbsp;<?php echo $mname; ?></td>
      <td>&nbsp;<?php echo $jname; ?></td>

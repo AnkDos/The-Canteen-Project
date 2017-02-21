@@ -45,6 +45,9 @@ header("Location: getorder.php");
 </script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 </head><body>
 
 <header>
@@ -109,13 +112,17 @@ header("Location: getorder.php");
 <form action="results.php" method="post">
 <!-- Smart Cart HTML Starts -->
   <div id="SmartCart" class="scMain">
-    <input type="hidden" pimage="products/product1.jpg" pprice="10" pdesc="QUANTITY LEFT : <?php echo $tit['QUANTITY']?>" pcategory="SRM Good Foods" pname="Samosa" pid="100" QUANTITY="<?php echo $tit['QUANTITY']?>">
-    <input type="hidden" pimage="products/product6.jpg" pprice="30" pdesc="Flavoured Milk Available in:Chocolate, Butterscotch, Vanila flavours" pcategory="SRM Good Foods" pname="Cavins Milk" pid="101">
-    <input type="hidden" pimage="products/product3.jpg" pprice="10" pdesc="Available in many flavours...Mix and combine different flavours" pcategory="Soda Wala" pname="Soda" pid="200">
-    <input type="hidden" pimage="products/product4.jpg" pprice="750.00" pdesc="Re-defining the perception of advanced mobile phones? the HTC Touch Diamond? signals a giant leap forward in combining hi-tech prowess with intuitive usability and exhilarating design." pcategory="Mobile Phones" pname="HTC Touch Diamond" pid="103">
-    <input type="hidden" pimage="products/product2.jpg" pprice="1600.00" pdesc="IMAC G5/1.8 256MB 160GB SD 20IN OS10.3" pcategory="Computers" pname="Apple iMac G5 Desktop" pid="104">
-    <input type="hidden" pimage="products/product5.jpg" pprice="1150.00" pdesc="" pcategory="Mobile Phones" pname="Blackberry 8900" pid="105">
-    <input type="hidden" pimage="products/product8.jpg" pprice="148.85" pdesc="" pcategory="Accessories" pname="Headphone with mic" pid="106">                       
+	  <?php 
+$pro=mysql_query("select * from Products");
+while($fet= mysql_fetch_array($pro))
+ {
+	  ?>
+    <input type="hidden"  pprice="<?php echo $fet['pprice']?>"  pcategory="<?php echo $fet['pcategory']?>" pname="<?php echo $fet['pname']?>" pid="<?php echo $fet['pid']?>">
+  
+  <?
+}
+  ?>
+  
   </div>
 <!-- Smart Cart HTML Ends -->
 </form>
@@ -123,10 +130,10 @@ header("Location: getorder.php");
 </table>
 
 <footer>
-&nbsp;Hi' <?php echo $userRow['userEmail']; ?>
+
        &nbsp; Wallet Balance :  <?php echo $userRow['Wallet_Bal']; ?>
 
-<a href="getorder.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp; CHECK ALL ORDERS</a>
+<a href="getorder.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp; CHECK ORDERS</a>
 <a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
 
 

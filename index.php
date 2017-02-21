@@ -12,17 +12,17 @@
   
   $email = $_POST['email'];
   $upass = $_POST['pass'];
-  $REG = $_POST['REG'];
+ // $REG = $_POST['REG'];
 
 
   $email = strip_tags(trim($email));
   $upass = strip_tags(trim($upass));
-  $REG = strip_tags(trim($REG));
+//  $REG = strip_tags(trim($REG));
 
 
   $password = hash('sha256', $upass); // password hashing using SHA256
   
-  $res=mysql_query("SELECT userId, userName, userPass FROM users WHERE userEmail='$email' AND REG_NUM='$REG'");
+  $res=mysql_query("SELECT userId, userName, userPass FROM users WHERE userEmail='$email'");
   
   $row=mysql_fetch_array($res);
   
@@ -501,9 +501,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="contact-grids wow bounceInRight animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation-delay: 0.4s;">
 			<div class="col-md-4 contactgrid">
 				<input type="text" name="email" class="text" value="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-				</div>
-				<div class="col-md-4 contactgrid">
-				<input type="text" name="REG"  class="text"  value="REG NUMBER" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'REG';}">
 				</div>
 				
 				<div align="center" class="col-md-4 contactgrid">
