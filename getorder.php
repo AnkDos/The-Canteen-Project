@@ -132,7 +132,7 @@ th {
 <th>TOTAL</th>
 <th>order_DT</th>
 <th>delivery_status</th>
-<th>Order Number</th>
+<th>Bill</th>
 
  </tr>
 
@@ -142,6 +142,30 @@ th {
 
 
 <?php 
+
+//Qr Code Part
+
+require_once("qrcode.php");
+
+//---------------------------------------------------------
+
+
+
+
+// if(isset($_GET['order']))
+
+// {
+	
+	
+// }
+
+
+
+
+
+$i=0;
+
+//
  while($row = mysql_fetch_array($res))
  {
     $pname =$row['Pname'];
@@ -150,7 +174,13 @@ th {
     $jname =$row['TOTAL'];  
     $sname =$row['order_DT']; 
     $ab=$row['delivery_status'];
-    $on=$row['order_num'];
+     $on=$row['order_num'];
+	  		
+$qr = QRCode::getMinimumQRCode("Product : ".$pname ."\n"."Quantity : ". $mname."\n"."Total : ".$jname."\n"."Date/Time :".$sname."\n "."Order Num :".$on,QR_ERROR_CORRECT_LEVEL_L);
+
+
+
+	   
 ?>
 
 <tr>
@@ -160,18 +190,26 @@ th {
      <td>&nbsp;<?php echo $jname; ?></td>
        <td>&nbsp;<?php echo $sname; ?></td>
      <td>&nbsp;<?php echo $ab; ?></td>
-       <td>&nbsp;<?php echo $on; ?></td>
-     
+       
+		
+       <td>  <? 
+	   
+	 if($ab=="NOT DELIVERED"){
+	$qr->printHTML(); } ?>     </td>
+ 
   
   
+  <?
+ }
+  ?>
+  
+  </td>
   </tr>
 
 
 
 
-<?php
-}
-?>
+
 </table><center>
 <font face='monotype corosiva' size="5">WALLET BALANCE : <?php echo $userRow['Wallet_Bal']; ?><br>
 <a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
